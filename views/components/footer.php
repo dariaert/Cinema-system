@@ -4,10 +4,10 @@
             <nav class="footer__menu">
                 <ul class="footer__menu-list">
                     <li class="footer__menu-item">
-                        <a href="#" class="footer__menu-link">Расписание</a>
+                        <a href="/schedule" class="footer__menu-link">Расписание</a>
                     </li>
                     <li class="footer__menu-item">
-                        <a href="#" class="footer__menu-link">Избранное</a>
+                        <a href="/favourites" class="footer__menu-link">Избранное</a>
                     </li>
                 </ul>
             </nav>

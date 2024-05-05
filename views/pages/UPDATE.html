@@ -13,6 +13,48 @@
 </head>
 <body>
 
+<style>
+
+.title-ticket-section{
+    margin-top: 50px;
+}
+
+.all-tickets-list{
+    margin-bottom: 80px;
+}
+
+.all-tickets-list_item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+    background-color: #262624;
+    width: 100%;
+    height: 290px;
+    border-radius: 15px;
+}
+
+.all-tickets-list_item-text{
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 100%;
+}
+
+.all-tickets-list_item-text_line{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.all-tickets-list_item-code{
+    margin-right: 30px;
+    margin-top: 31px;
+}
+
+</style>
+
 <div class="wrapper">
 
 <header class="header">
@@ -57,90 +99,57 @@
 
 <main class="main">
 
-    <section class="redact_show-film">
-        <div class="container">
+    <div class="container">
 
-            <h1 style="margin-top: 50px;">Обновление сеанса</h1> <hr>
-
-            <form action="" method="post" class="redact-show-form">
-                <input id="date" name="date" type="date" class="redact-input" required>
-                <input id="time" name="time" type="time" class="redact-input" required>
-                <input id="cost" name="cost" type="text" class="redact-input-cost" placeholder="Цена" required>
-                <select name="film-sel" id="film-sel" class="custom-select-film">
-                    <option>Dog</option>
-                </select>
-                <button class="btn-admin-panel" type="submit">
-                    <div class="redact-text">
-                        <h4>Изменить</h4>
-                    </div>
-                </button>
-            </form> <hr>
-
+        <div class="title-ticket-section">
+            <h1>Действующие билеты</h1>
         </div>
-    </section>
 
-    <section class="redact_genre-film">
-        <div class="container">
-            <div class="redact_genre-block">
-                <h1>Обновление жанра</h1>
-                <form action="" method="post" class="redact-show-form">
-                    <input id="genre" name="genre" type="text" class="redact-input-genre" placeholder="Название" required>
-                    <button class="btn-admin-panel" type="submit">
-                        <div class="redact-text">
-                            <h4>Изменить</h4>
+        <section class="all-tickets-list">
+
+            <div class="all-tickets-list_item">
+
+                <div class="all-tickets-list_item-text">
+                    
+                    <h4>15.03.2024</h4>
+
+                    <h2 style="font-weight: 400; margin-top: 10px;">№ 32</h2>
+
+                    <hr style="margin: 20px 0 20px">
+
+                    <h2 style="font-weight: 400">Кунг-Фу Панда 4 (12+)</h2>
+
+                    <h4 style="margin-top: 18px;">15 марта 2024 в 19:00</h4>
+
+                    <div class="all-tickets-list_item-text_line">
+
+                        <div class="all-tickets-list_item-text-cost">
+
+                            <h2 style="font-weight: 400">600₽</h2>
+
                         </div>
-                    </button>
-                </form>
-            </div> <hr>
-        </div>
-    </section>
 
-    <section class="redact_film">
-        <div class="container">
-            <h1>Обновление фильма</h1> <hr>
-            <form action="" method="post" class="redact-film-form" enctype="multipart/form-data">
-                <div class="redact-film-form-block">
+                        <div class="all-tickets-list_item-text-seat">
 
-                    <div class="redact-film-form-block-item">
-                        <input id="name" name="name" type="text" class="redact-input-genre" placeholder="Название" required>
-                        <select name="id_genre" id="id_genre" class="redact-input-genre">
-                            <option>Комедия</option>
-                        </select>
+                            <h2 style="font-weight: 400">6 РЯД 12 МЕСТО</h2>
+
+                        </div>
+
                     </div>
 
-                    <div class="redact-film-form-block-item">
-                        <input style="width: 100%;" id="actors" name="actors" type="text" class="redact-input-genre" placeholder="Актеры" required>
-                    </div>
-
-                    <div class="redact-film-form-block-item">
-                        <input id="duration" name="duration" type="text" class="redact-input-genre" placeholder="Продолжительность, мин" required>
-                        <select name="ageLimit" id="ageLimit" class="redact-input-genre">
-                            <option>12+</option>
-                        </select>
-                    </div>
-
-                    <div class="redact-film-form-block-item">
-                        <input id="filmmaker" name="filmmaker" type="text" class="redact-input-genre" placeholder="Режиссер" required>
-                        <input id="country" name="country" type="text" class="redact-input-genre" placeholder="Страна" required>
-                    </div>
-
-                    <input style="margin-top: 30px;" id="poster" name="poster" type="file" class="" required>
+                </div>
+                
+                <div class="all-tickets-list_item-code">
+                    
+                    <img src="/public/assets/images/Icons/QR-CODE.svg">
+                    
                 </div>
 
-                <div class="redact-film-form-block" style="margin-left: 20px">
-                    <textarea style="width: 100%;" id="description" name="description" class="custom-textarea" placeholder="Описание" required></textarea> <br>
-                    <button class="btn-admin-panel" type="submit" style="margin-top: 30px; position: absolute; right: 0;">
-                        <div class="redact-text">
-                            <h4>Изменить</h4>
-                        </div>
-                    </button>
-                </div>
+            </div>
 
+        </section>
 
-            </form>
-
-        </div>
-    </section>
+    </div>
 
 </main>
 

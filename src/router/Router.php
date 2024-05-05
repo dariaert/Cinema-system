@@ -2,7 +2,12 @@
 
 namespace router;
 
+use core\controllers\FavouritesController;
+use core\controllers\GenreController;
 use core\controllers\MovieController;
+use core\controllers\ScheduleController;
+use core\controllers\ShowController;
+use core\controllers\TicketController;
 
 class Router
 {
@@ -17,12 +22,14 @@ class Router
         ];
     }
 
-    public static function myPost(string $url, string $controller, string $method)
+    public static function myPost(string $url, string $controller, string $method, $data = false, $file = false)
     {
         self::$list[] = [
             'url' => $url,
             'controller' => $controller,
-            'method' => $method
+            'method' => $method,
+            'data' => $data,
+            'file' => $file
         ];
     }
 
@@ -36,6 +43,11 @@ class Router
                 if ($_SERVER['REQUEST_METHOD'] === "GET")
                 {
                     $Movie = new MovieController();
+                    $Genre = new GenreController();
+                    $Show = new ShowController();
+                    $Favourites = new FavouritesController();
+                    $Schedule = new ScheduleController();
+                    $Ticket = new TicketController();
                     switch ($item['namePage'])
                     {
                         case 'home':
@@ -51,10 +63,34 @@ class Router
                             $Movie -> OneMovie($item['namePage'], $_GET['id']);
                             die();
                         case 'profile':
-                            require_once __DIR__ . '/../../views/pages/' . $item['namePage'] . '.php';
+                            $Ticket -> AllTicket($item['namePage']);
                             die();
-                        case 'admin':
-                            require_once __DIR__ . '/../../views/admin/' . $item['namePage'] . '.php';
+                        case 'schedule':
+                            $Schedule -> AllDate($item['namePage']);
+                            die();
+                        case 'booking':
+                            $Schedule -> OneShow($item['namePage'], $_GET['id_show']);
+                            die();
+                        case 'favourites':
+                            $Favourites -> AllFav($item['namePage']);
+                            die();
+                        case 'updateGenre':
+                            $Genre -> OneGenre($item['namePage'], $_GET['id']);
+                            die();
+                        case 'updateFilm':
+                            $Movie -> OneMovie($item['namePage'], $_GET['id']);
+                            die();
+                        case 'updateShow':
+                            $Show -> OneShow($item['namePage'], $_GET['id']);
+                            die();
+                        case 'panel':
+                            $Movie -> AllMovie($item['namePage']);
+                            die();
+                        case 'genre':
+                            $Genre -> AllGenre($item['namePage']);
+                            die();
+                        case 'show':
+                            $Show -> AllShow($item['namePage']);
                             die();
                     }
                 }
@@ -72,6 +108,54 @@ class Router
                             $action->$method($_POST);
                             die();
                         case 'logout':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'deleteGenre':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'deleteFilm':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'deleteShow':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'deleteFavourite':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'addGenre':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'addFilm':
+                            $action = new $item['controller'];
+                            $action->$method($_POST, $_FILES);
+                            die();
+                        case 'addShow':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'addFavourite':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'redactGenre':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'redactShow':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'redactFilm':
+                            $action = new $item['controller'];
+                            $action->$method($_POST);
+                            die();
+                        case 'bookingSeat':
                             $action = new $item['controller'];
                             $action->$method($_POST);
                             die();

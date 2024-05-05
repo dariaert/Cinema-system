@@ -28,7 +28,7 @@ include __DIR__ . '/../components/header.php';
 
             <div class="poster_list">
 
-                <?php foreach ($data as $item)
+                <?php foreach ($dataAllMovie as $item)
                 {
                 ?>
                     <a href="about.php?id=<?=$item['id_film']?>">
